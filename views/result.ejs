@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details - <%= student.name %> | Satyam Computer Institute</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Satyam Computer Institute</a>
+      <p class="tagline">Student Verification Portal</p>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="result-actions">
+      <a href="/#verify-student" class="btn-secondary">&larr; Verify Another</a>
+    </section>
+    <% if (valid && student) { %>
+      <div class="valid-badge">Valid Student</div>
+      <section class="student-info-card">
+        <h2>Student Information</h2>
+        <table class="info-table">
+          <tr><th>Name</th><td><%= student.name %></td></tr>
+          <tr><th>Father Name</th><td><%= student.fatherName %></td></tr>
+          <tr><th>Mother Name</th><td><%= student.motherName %></td></tr>
+          <tr><th>Session</th><td><%= student.session %></td></tr>
+          <tr><th>Gender</th><td><%= student.gender %></td></tr>
+          <tr><th>Enrollment Number</th><td><%= student.enrollmentNumber %></td></tr>
+          <tr><th>Aadhaar Number</th><td><%= student.aadhaarNumber %></td></tr>
+          <tr><th>Registration Number</th><td><%= student.registrationNumber %></td></tr>
+          <tr><th>Exam Centre</th><td><%= student.examCentre %></td></tr>
+        </table>
+      </section>
+      <section class="marksheet-card">
+        <h2>Marksheet</h2>
+        <table class="marks-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks Obtained</th>
+              <th>Out of</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% student.subjects.forEach(function(sub) { %>
+              <tr>
+                <td><%= sub.name %></td>
+                <td><%= sub.marksObtained %></td>
+                <td><%= sub.outOf %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+          <tfoot>
+            <tr class="total-row">
+              <td><strong>Obtained Marks</strong></td>
+              <td><strong><%= student.obtainedMarks %></strong></td>
+              <td><strong><%= student.totalMarks %></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="downloads">
+          <% if (student.marksheetUrl) { %>
+            <a href="<%= student.marksheetUrl %>" class="btn-download" target="_blank" rel="noopener">Marksheet Download</a>
+          <% } else { %>
+            <span class="btn-download disabled">Marksheet Download</span>
+          <% } %>
+          <% if (student.certificateUrl) { %>
+            <a href="<%= student.certificateUrl %>" class="btn-download" target="_blank" rel="noopener">Certificate Download</a>
+          <% } else { %>
+            <span class="btn-download disabled">Certificate Download</span>
+          <% } %>
+        </div>
+      </section>
+    <% } %>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> Satyam Computer Institute. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
