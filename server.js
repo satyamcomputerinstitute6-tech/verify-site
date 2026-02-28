@@ -52,7 +52,7 @@ app.get('/verify', ensureDb, async (req, res) => {
     return res.redirect('/#verify-student');
   }
   try {
-    const student = await Student.findOne({ enrollmentNumber: enrollmentId });
+    const student = await Student.findOne({ enrollmentNumber: enrollmentId }).lean();
     if (student) return res.render('result', { student, valid: true });
     return res.redirect('/?error=' + encodeURIComponent('No student found with this Enrollment Number.') + '&enrollmentId=' + encodeURIComponent(enrollmentId) + '#verify-student');
   } catch (err) {
@@ -69,7 +69,7 @@ app.post('/verify', ensureDb, async (req, res) => {
   try {
     const student = await Student.findOne({
       enrollmentNumber: enrollmentId
-    });
+    }).lean();
     if (student) {
       return res.render('result', { student, valid: true });
     }

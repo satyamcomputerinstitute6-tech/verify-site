@@ -11,6 +11,7 @@ const studentSchema = new mongoose.Schema({
   fatherName: { type: String, required: true },
   motherName: { type: String, required: true },
   session: { type: String, required: true },
+  course: { type: String, default: '' },
   gender: { type: String, required: true },
   enrollmentNumber: { type: String, required: true, unique: true },
   aadhaarNumber: { type: String, required: true },

@@ -11,6 +11,7 @@ const sampleStudent = {
   fatherName: 'Ramkaran Singh',
   motherName: 'Darshana Kaur',
   session: 'Nov 2025 To Jan 2026 (120 Hours)',
+  course: 'Diploma in Computer Applications',
   gender: 'Female',
   enrollmentNumber: 'E64953',
   aadhaarNumber: '798268261968',

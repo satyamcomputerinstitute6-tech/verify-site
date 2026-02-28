@@ -42,7 +42,7 @@ body {
 /* Top bar */
 .topbar {
   background: var(--bg-dark);
-  color: #94a3b8;
+  color: #e2e8f0;
   font-size: 0.8125rem;
   padding: 0.5rem 0;
 }
@@ -62,9 +62,10 @@ body {
 }
 
 .topbar__link, .topbar__right a {
-  color: inherit;
+  color: #e2e8f0;
   text-decoration: none;
   transition: color 0.2s;
+  font-weight: 500;
 }
 
 .topbar__link:hover, .topbar__right a:hover {
@@ -100,7 +101,8 @@ body {
 
 .logo-icon { color: var(--primary); line-height: 1; }
 
-.logo-text { font-family: var(--font-head); font-weight: 600; }
+.logo-text { font-family: var(--font-head);
+  font-weight: 900; }
 
 .tagline {
   margin: 0;
@@ -337,6 +339,17 @@ body {
 }
 
 /* Courses */
+.courses-intro {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .courses-wrap {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -368,6 +381,57 @@ body {
 
 @media (max-width: 768px) {
   .courses-wrap { grid-template-columns: 1fr; }
+}
+
+/* Services */
+.section--services { background: var(--bg-alt); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.service-card__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.service-card__icon svg { flex-shrink: 0; }
+
+.service-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.service-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* Why Choose Us / Features */
@@ -697,4 +761,3 @@ body {
   .info-table th { padding-top: 0.75rem; border-bottom: none; }
   .info-table tr { border-bottom: 1px solid var(--border); }
 }
-
