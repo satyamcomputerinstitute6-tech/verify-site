@@ -100,7 +100,7 @@ body {
 
 .logo-icon { color: var(--primary); line-height: 1; }
 
-.logo-text { font-family: var(--font-head); font-weight: 400; }
+.logo-text { font-family: var(--font-head); font-weight: 600; }
 
 .tagline {
   margin: 0;
@@ -697,3 +697,4 @@ body {
   .info-table th { padding-top: 0.75rem; border-bottom: none; }
   .info-table tr { border-bottom: 1px solid var(--border); }
 }
+
